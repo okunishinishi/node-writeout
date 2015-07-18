@@ -33,10 +33,11 @@ writeout('hello-wold', 'This is the contents text', {
 Options
 -----
 
-| Name | Description |
-| --- | --- |
-| `mkdirp` | Make parent directories. |
-| `skipIfIdentical` | Skip to write if existing content is identical. ||
+| Name | Default | Description |
+| --- | --- | --- |
+| `mkdirp` | false | Make parent directories. |
+| `skipIfIdentical` | false | Skip to write if existing content is identical. ||
+| `mode` | "644" | File permission. |
 
 
 Installation

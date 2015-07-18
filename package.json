@@ -1,6 +1,6 @@
 {
   "name": "writeout",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Write out string files with various options.",
   "main": "writeout.js",
   "scripts": {

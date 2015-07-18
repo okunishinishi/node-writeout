@@ -6,6 +6,7 @@
  * @param {object} [options] - Optional settings.
  * @param {boolean} [options.mkdirp=false] - Make parent directories.
  * @param {boolean} [options.skipIfIdentical=false] - Skip to write if existing content is identical.
+ * @param {string} [options.mode='644'] - File permission.
  * @param {function} [callback] - Callback when done.
  */
 
@@ -55,7 +56,9 @@ function writeout(filename, content, options, callback) {
                         callback(null);
                         return;
                     }
-                    fs.writeFile(filename, content, function (err) {
+                    fs.writeFile(filename, content, {
+                        mode: options.mode || '644'
+                    }, function (err) {
                         result.skipped = false;
                         callback(err);
                     });
