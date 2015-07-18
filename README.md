@@ -1,4 +1,4 @@
-node-renderfile
+writeout
 =========
 
 Write out string files with various options. 
