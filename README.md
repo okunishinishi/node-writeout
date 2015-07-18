@@ -15,7 +15,7 @@ Usage
 -----
 
 ```javascript
-writeout('hello-wold, 'This is the contents text', {
+writeout('hello-wold', 'This is the contents text', {
     mkdirp: true,
     skipIfIdentical: true
 }, function(err, result){
