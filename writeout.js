@@ -73,7 +73,7 @@ function writeout(filename, content, options, callback) {
 function _hasDuplicate(filename, content, callback) {
     fs.exists(filename, function (exists) {
         if (!exists) {
-            callback(true);
+            callback(false);
             return;
         }
         fs.readFile(filename, function (err, exsting) {
