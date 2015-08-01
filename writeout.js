@@ -22,7 +22,7 @@ var async = require('async'),
 function writeout(filename, content, options, callback) {
     var args = argx(arguments);
     filename = args.shift();
-    content = String(args.shift());
+    content = args.shift();
     callback = args.pop('function') || argx.noop;
     options = args.pop('object') || {};
 
@@ -77,7 +77,7 @@ function _hasDuplicate(filename, content, callback) {
             return;
         }
         fs.readFile(filename, function (err, exsting) {
-            var duplicate = !err && (String(exsting) === content);
+            var duplicate = !err && (String(exsting) === String(content));
             callback(!!duplicate);
         });
     });
