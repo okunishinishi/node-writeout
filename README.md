@@ -71,6 +71,7 @@ Options
 | `mkdirp` | false | Make parent directories. |
 | `skipIfIdentical` | false | Skip to write if existing content is identical. ||
 | `mode` | "644" | File permission. |
+| `force` | false | Force to write even if existing file is readonly. |
 
 <!-- Sections Start -->
 
