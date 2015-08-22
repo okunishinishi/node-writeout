@@ -1,6 +1,6 @@
 {
   "name": "writeout",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Write out string files with various options.",
   "main": "lib",
   "scripts": {
@@ -41,6 +41,7 @@
   "dependencies": {
     "argx": "^1.1.6",
     "async": "^1.4.2",
+    "filedel": "^1.0.0",
     "mkdirp": "^0.5.1"
   }
 }
