@@ -1,15 +1,12 @@
 {
   "name": "writeout",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Write out string files with various options.",
   "main": "lib",
   "scripts": {
     "test": "./ci/test.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/okunishinishi/node-writeout.git"
-  },
+  "repository": "okunishinishi/node-writeout",
   "keywords": [
     "file",
     "rendering"

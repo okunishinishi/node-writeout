@@ -43,6 +43,63 @@ Write out string files with various options.
 <!-- Sections Start -->
 <a name="sections"></a>
 
+<!-- Section from "doc/guides/01.Installation.md.hbs" Start -->
+
+<a name="section-doc-guides-01-installation-md"></a>
+Installation
+-----
+
+```bash
+npm install writeout --save
+```
+
+
+<!-- Section from "doc/guides/01.Installation.md.hbs" End -->
+
+<!-- Section from "doc/guides/02.Usage.md.hbs" Start -->
+
+<a name="section-doc-guides-02-usage-md"></a>
+Usage
+----
+
+```javascript
+'use strict'
+
+const writeout = require('writeout')
+
+// Generate a file.
+writeout('hello-wold', 'This is the contents text', {
+  mkdirp: true,
+  skipIfIdentical: true
+}).then((result) => {
+  if (err) {
+    console.error(err);
+  } else {
+    if (!result.skipped) {
+      console.log('File generated:', result.filename);
+    }
+  }
+})
+
+```
+
+<!-- Section from "doc/guides/02.Usage.md.hbs" End -->
+
+<!-- Section from "doc/guides/03.Options.md.hbs" Start -->
+
+<a name="section-doc-guides-03-options-md"></a>
+Options
+-----
+
+| Name | Default | Description |
+| --- | --- | --- |
+| `mkdirp` | false | Make parent directories. |
+| `skipIfIdentical` | false | Skip to write if existing content is identical. ||
+| `mode` | "644" | File permission. |
+| `force` | false | Force to write even if existing file is readonly. |
+
+<!-- Section from "doc/guides/03.Options.md.hbs" End -->
+
 
 <!-- Sections Start -->
 
