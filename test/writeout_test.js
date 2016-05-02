@@ -3,56 +3,49 @@
  * Runs with nodeunit.
  */
 
-"use strict";
+'use strict'
 
-var writeout = require('../lib'),
-    path = require('path'),
-    mkdirp = require('mkdirp');
+const writeout = require('../lib')
+const co = require('co')
+const path = require('path')
+const assert = require('assert')
+const mkdirp = require('mkdirp')
 
-var tmpDir = path.resolve(__dirname, '../tmp');
+let tmpDir = path.resolve(__dirname, '../tmp')
 
-exports.setUp = function (done) {
-    mkdirp.sync(tmpDir);
-    done();
-};
+describe('writeout', () => {
+  before(() => {
+    mkdirp.sync(tmpDir)
+  })
 
+  it('Do writeout.', () => co(function * () {
+    let filename = path.resolve(tmpDir, 'foo/bar/baz.txt')
+    let result = yield writeout(filename, 'Oh!', {
+      mkdirp: true,
+      skipIfIdentical: false
+    })
+    assert.ok(result)
+    let result2 = yield writeout(filename, 'Oh!', {
+      mkdirp: false,
+      skipIfIdentical: true
+    })
+    assert.equal(result2.skipped, true)
+  }))
 
-exports['Do writeout.'] = function (test) {
-    var filename = path.resolve(tmpDir, 'foo/bar/baz.txt');
-    writeout(filename, 'Oh!', {
-        mkdirp: true,
-        skipIfIdentical: false
-    }, function (err) {
-        test.ifError(err);
-        writeout(filename, 'Oh!', {
-            mkdirp: false,
-            skipIfIdentical: true
-        }, function (err, result) {
-            test.ifError(err);
-            test.equal(result.skipped, true);
-            test.done();
-        });
-    });
-};
+  it('Do writeout to force.', () => co(function * () {
+    let filename = path.resolve(tmpDir, 'foo/bar/baz-readonly.txt')
+    yield writeout(filename, 'This is readonly.', {
+      mkdirp: true,
+      skipIfIdentical: false,
+      mode: '444'
+    })
+    yield writeout(filename, 'Override readonly file.', {
+      mkdirp: false,
+      skipIfIdentical: true,
+      mode: '644',
+      force: true
+    })
+  }))
+})
 
-
-exports['Do writeout to force.'] = function (test) {
-    var filename = path.resolve(tmpDir, 'foo/bar/baz-readonly.txt');
-    writeout(filename, 'This is readonly.', {
-        mkdirp: true,
-        skipIfIdentical: false,
-        mode: '444'
-    }, function (err) {
-        test.ifError(err);
-        writeout(filename, 'Override readonly file.', {
-            mkdirp: false,
-            skipIfIdentical: true,
-            mode: '644',
-            force: true
-        }, function (err, result) {
-            test.ifError(err);
-            test.done();
-        });
-    });
-};
-
+/* global describe, before, it */
