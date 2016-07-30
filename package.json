@@ -1,6 +1,6 @@
 {
   "name": "writeout",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Write out string files with various options.",
   "main": "lib",
   "scripts": {
