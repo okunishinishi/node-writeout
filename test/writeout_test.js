@@ -1,11 +1,12 @@
 /**
  * Test for writeout.js
- * Runs with nodeunit.
+ * Runs with mocha.
  */
 
 'use strict'
 
 const writeout = require('../lib')
+const fs = require('fs')
 const co = require('co')
 const path = require('path')
 const assert = require('assert')
@@ -44,6 +45,16 @@ describe('writeout', () => {
       skipIfIdentical: true,
       mode: '644',
       force: true
+    })
+  }))
+
+  it('Write from stream', () => co(function * () {
+    let filename = path.resolve(tmpDir, 'foo/bar/baz-stream.txt')
+    yield writeout(filename, fs.createReadStream(__filename), {
+      mkdirp: true,
+      skipIfIdentical: false,
+      force: true,
+      mode: '444'
     })
   }))
 })
