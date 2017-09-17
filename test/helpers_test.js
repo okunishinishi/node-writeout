@@ -6,22 +6,22 @@
 
 const helpers = require('../lib/helpers.js')
 const assert = require('assert')
-const co = require('co')
+
 
 describe('helpers', function () {
   this.timeout(3000)
 
-  before(() => co(function * () {
+  before(async () =>  {
 
-  }))
+  })
 
-  after(() => co(function * () {
+  after(async () =>  {
 
-  }))
+  })
 
-  it('Helpers', () => co(function * () {
+  it('Helpers', async () =>  {
 
-  }))
+  })
 })
 
 /* global describe, before, after, it */
