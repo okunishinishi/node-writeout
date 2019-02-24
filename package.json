@@ -1,6 +1,6 @@
 {
   "name": "writeout",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Write out string files with various options.",
   "main": "lib",
   "browser": {
@@ -25,17 +25,17 @@
   },
   "homepage": "https://github.com/okunishinishi/node-writeout#readme",
   "dependencies": {
-    "argx": "^3.0.0",
+    "argx": "^4.0.0",
     "filedel": "^4.0.0",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "amocha": "^3.0.0",
-    "ape-releasing": "^4.0.2",
+    "amocha": "^5.0.1",
+    "ape-releasing": "^5.0.1",
     "ape-tasking": "^4.0.7",
-    "ape-tmpl": "^6.0.1",
-    "ape-updating": "^4.0.4",
-    "coz": "^6.0.14",
+    "ape-tmpl": "^6.0.12",
+    "ape-updating": "^5.0.1",
+    "coz": "^7.0.8",
     "mkdirp": "^0.5.1"
   },
   "engines": {
