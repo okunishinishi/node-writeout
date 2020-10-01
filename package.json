@@ -1,6 +1,6 @@
 {
   "name": "writeout",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Write out string files with various options.",
   "main": "lib",
   "browser": {
